@@ -1,12 +1,18 @@
 package com.example.dann.pcsilos;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.tmall.ultraviewpager.UltraViewPager;
+import com.tmall.ultraviewpager.transformer.UltraDepthScaleTransformer;
 
 
 /**
@@ -64,7 +70,40 @@ public class MenuPeso extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_menu_peso, container, false);
+        View v = inflater.inflate(R.layout.fragment_menu_peso, container, false);
+
+        UltraViewPager ultraViewPager = (UltraViewPager)v.findViewById(R.id.ultra_viewpager_peso);
+        ultraViewPager.setScrollMode(UltraViewPager.ScrollMode.HORIZONTAL);
+        ultraViewPager.setMultiScreen(0.6f);
+        ultraViewPager.setItemRatio(1.0f);
+        ultraViewPager.setAutoMeasureHeight(true);
+        ultraViewPager.setInfiniteRatio(100);
+        ultraViewPager.setPageTransformer(false, new UltraDepthScaleTransformer());
+//initialize UltraPagerAdapter，and add child view to UltraViewPager
+        MyPagerAdapter adapter = new MyPagerAdapter();
+        ultraViewPager.setAdapter(adapter);
+
+//initialize built-in indicator
+        ultraViewPager.initIndicator();
+//set style of indicators
+        ultraViewPager.getIndicator()
+                .setOrientation(UltraViewPager.Orientation.HORIZONTAL)
+                .setFocusColor(Color.GREEN)
+                .setNormalColor(Color.WHITE)
+                .setRadius((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 5, getResources().getDisplayMetrics()));
+//set the alignment
+        ultraViewPager.getIndicator().setGravity(Gravity.CENTER_HORIZONTAL | Gravity.BOTTOM);
+//construct built-in indicator, and add it to  UltraViewPager
+        ultraViewPager.getIndicator().build();
+
+//set an infinite loop
+        ultraViewPager.setInfiniteLoop(true);
+//enable auto-scroll mode
+        ultraViewPager.setAutoScroll(2000);
+
+
+
+        return v;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

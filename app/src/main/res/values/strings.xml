@@ -45,6 +45,10 @@
     <string name="tv_consumo_dia">Consumo por hora - Real</string>
     <string name="tv_fecha_consumo_dia">Fecha: </string>
 
+    //peso
+    <string name="tv_peso_dia">Consumo por hora - Real</string>
+    <string name="tv_fecha_peso_dia">Fecha: </string>
+
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

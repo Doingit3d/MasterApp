@@ -23,7 +23,7 @@
             android:backgroundTint="@color/cardview_light_background">
 
             <com.tmall.ultraviewpager.UltraViewPager
-                android:id="@+id/ultra_viewpager"
+                android:id="@+id/ultra_viewpager_consumo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
@@ -95,14 +95,14 @@
                                 android:orientation="vertical">
 
                                 <TextView
-                                    android:id="@+id/tv_cosumo_hora"
+                                    android:id="@+id/tv_consumo_hora"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:text="@string/tv_consumo_dia"
                                     tools:text="@string/tv_consumo_dia" />
 
                                 <TextView
-                                    android:id="@+id/tv_fecha_cosumo_hora"
+                                    android:id="@+id/tv_fecha_consumo_hora"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:text="@string/tv_fecha_consumo_dia"
@@ -145,14 +145,14 @@
                                 android:orientation="vertical">
 
                                 <TextView
-                                    android:id="@+id/tv_cosumo_dia"
+                                    android:id="@+id/tv_consumo_dia"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:text="@string/tv_consumo_dia"
                                     tools:text="@string/tv_consumo_dia" />
 
                                 <TextView
-                                    android:id="@+id/tv_fecha_cosumo_dia"
+                                    android:id="@+id/tv_fecha_consumo_dia"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:text="@string/tv_fecha_consumo_dia"
@@ -222,14 +222,14 @@
                                 android:orientation="vertical">
 
                                 <TextView
-                                    android:id="@+id/tv_cosumo_mes"
+                                    android:id="@+id/tv_consumo_mes"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:text="@string/tv_consumo_dia"
                                     tools:text="@string/tv_consumo_dia" />
 
                                 <TextView
-                                    android:id="@+id/tv_fecha_cosumo_mes"
+                                    android:id="@+id/tv_fecha_consumo_mes"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:text="@string/tv_fecha_consumo_dia"
@@ -269,14 +269,14 @@
                                 android:orientation="vertical">
 
                                 <TextView
-                                    android:id="@+id/tv_cosumo_ano"
+                                    android:id="@+id/tv_consumo_ano"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:text="@string/tv_consumo_dia"
                                     tools:text="@string/tv_consumo_dia" />
 
                                 <TextView
-                                    android:id="@+id/tv_fecha_cosumo_ano"
+                                    android:id="@+id/tv_fecha_consumo_ano"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:text="@string/tv_fecha_consumo_dia"

@@ -75,7 +75,7 @@ public class MenuConsumo extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_menu_consumo, container, false);
 
-        UltraViewPager ultraViewPager = (UltraViewPager)v.findViewById(R.id.ultra_viewpager);
+        UltraViewPager ultraViewPager = (UltraViewPager)v.findViewById(R.id.ultra_viewpager_consumo);
         ultraViewPager.setScrollMode(UltraViewPager.ScrollMode.HORIZONTAL);
         ultraViewPager.setMultiScreen(0.6f);
         ultraViewPager.setItemRatio(1.0f);

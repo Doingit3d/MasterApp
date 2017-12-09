@@ -5,12 +5,16 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.github.anastr.speedviewlib.SpeedView;
 import com.github.anastr.speedviewlib.util.OnPrintTickLabel;
+import com.tmall.ultraviewpager.UltraViewPager;
+import com.tmall.ultraviewpager.transformer.UltraDepthScaleTransformer;
 
 import java.util.ArrayList;
 import java.util.Locale;
@@ -78,6 +82,41 @@ public class MenuTiempoReal extends Fragment {
         SpeedView speedometer = (SpeedView) v.findViewById(R.id.speedView);
         final ArrayList<ArcProgressStackView.Model> models = new ArrayList<>();
 
+        /********************************** VIEW PAGER DE LOS SILOS ******************************/
+        UltraViewPager ultraViewPager = (UltraViewPager)v.findViewById(R.id.ultra_viewpager_tiempoReal);
+        ultraViewPager.setScrollMode(UltraViewPager.ScrollMode.HORIZONTAL);
+        ultraViewPager.setMultiScreen(0.6f);
+        ultraViewPager.setItemRatio(1.0f);
+        ultraViewPager.setAutoMeasureHeight(true);
+        ultraViewPager.setInfiniteRatio(100);
+        ultraViewPager.setPageTransformer(false, new UltraDepthScaleTransformer());
+//initialize UltraPagerAdapter，and add child view to UltraViewPager
+        MyPagerAdapter adapter = new MyPagerAdapter();
+        ultraViewPager.setAdapter(adapter);
+
+//initialize built-in indicator
+        ultraViewPager.initIndicator();
+//set style of indicators
+        ultraViewPager.getIndicator()
+                .setOrientation(UltraViewPager.Orientation.HORIZONTAL)
+                .setFocusColor(Color.GREEN)
+                .setNormalColor(Color.WHITE)
+                .setRadius((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 5, getResources().getDisplayMetrics()));
+//set the alignment
+        ultraViewPager.getIndicator().setGravity(Gravity.CENTER_HORIZONTAL | Gravity.BOTTOM);
+//construct built-in indicator, and add it to  UltraViewPager
+        ultraViewPager.getIndicator().build();
+
+//set an infinite loop
+        ultraViewPager.setInfiniteLoop(true);
+//enable auto-scroll mode
+        ultraViewPager.setAutoScroll(2000);
+
+        /*******************************FIN -> VIEW PAGER DE LOS SILOS****************************/
+
+
+        /*******************************  SPEEDOMETER DEL TIEMPO REAL ****************************/
+
         speedometer.setMaxSpeed(320);
 // change speed to 140 Km/h
         speedometer.speedTo(140);
@@ -102,6 +141,8 @@ public class MenuTiempoReal extends Fragment {
 
 
         //arcProgressStackView.setModels(models);
+
+        /**************************************************************************************/
 
         return v;
     }
