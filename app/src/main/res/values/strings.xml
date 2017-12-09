@@ -37,6 +37,7 @@
     <string name="title_activity_consum">ConsumActivity</string>
     <string name="title_activity_conf">ConfActivity</string>
 
+
     //Tiempo Real
     <string name="last_peso">Último peso registrado</string>
 
@@ -48,6 +49,11 @@
     //peso
     <string name="tv_peso_dia">Consumo por hora - Real</string>
     <string name="tv_fecha_peso_dia">Fecha: </string>
+
+    //configuration
+    <string name="tv_configuration_dia">Consumo por hora - Real</string>
+    <string name="tv_fecha_configuration_dia">Fecha: </string>
+
 
 
     <!-- TODO: Remove or change this placeholder text -->

@@ -38,4 +38,5 @@ dependencies {
     compile ('com.alibaba.android:ultraviewpager:1.0.6.1@aar') {
         transitive = true
     }
+    compile 'com.beardedhen:androidbootstrap:2.0.1'
 }
