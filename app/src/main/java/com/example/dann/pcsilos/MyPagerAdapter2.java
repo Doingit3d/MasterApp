@@ -1,28 +1,22 @@
 package com.example.dann.pcsilos;
 
-import android.graphics.Color;
 import android.support.constraint.ConstraintLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.PagerAdapter;
-import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
 /**
- * Created by dann on 08/12/2017.
+ * Created by dann on 10/12/2017.
  */
-public class MyPagerAdapter extends PagerAdapter {
+
+public class MyPagerAdapter2 extends PagerAdapter {
 
 
     private boolean isMultiScr;
 
 
-    public MyPagerAdapter() {
+    public MyPagerAdapter2() {
         this.isMultiScr = isMultiScr;
     }
 
@@ -42,7 +36,7 @@ public class MyPagerAdapter extends PagerAdapter {
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
 
-        ConstraintLayout linearLayout = (ConstraintLayout) LayoutInflater.from(container.getContext()).inflate(R.layout.scroll_silos_select, null);
+        ConstraintLayout linearLayout = (ConstraintLayout) LayoutInflater.from(container.getContext()).inflate(R.layout.scroll_silo_estado, null);
         //new LinearLayout(container.getContext());
        /* CardView textView = (CardView) linearLayout.findViewById(R.id.recu_scroll_silo);
         TextView tv = (TextView) linearLayout.findViewById(R.id.tv_scroll_consumo_silo);

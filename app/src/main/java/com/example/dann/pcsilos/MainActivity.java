@@ -1,6 +1,7 @@
 package com.example.dann.pcsilos;
 
 import android.animation.ValueAnimator;
+import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
@@ -28,11 +29,14 @@ import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 
 import static android.graphics.Color.BLUE;
 
+
+
 public class MainActivity extends AppCompatActivity
          implements MenuResumen.OnFragmentInteractionListener, NavigationView.OnNavigationItemSelectedListener,
         MenuConfiguration.OnFragmentInteractionListener, MenuConsumo.OnFragmentInteractionListener,
         MenuPeso.OnFragmentInteractionListener, MenuReport.OnFragmentInteractionListener,
         MenuTiempoReal.OnFragmentInteractionListener, DatePickerDialog.OnDateSetListener {
+    static Context globalContext = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,16 +45,7 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
-        ImageView im = (ImageView) findViewById(R.id.imageView4);
-
-        WaveDrawable mWaveDrawable = new WaveDrawable(this, R.drawable.silo);
-
-// Use as common drawable
-
-        im.setImageDrawable(mWaveDrawable);
-            mWaveDrawable.setIndeterminate(true);
-
+        globalContext = getApplicationContext();
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

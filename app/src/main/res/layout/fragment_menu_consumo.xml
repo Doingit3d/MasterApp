@@ -68,7 +68,7 @@
                             android:orientation="vertical">
 
                             <ImageView
-                                android:id="@+id/imageView3"
+                                android:id="@+id/img_hora_consumo"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:src="@drawable/ic_action_line" />
@@ -199,7 +199,7 @@
                             android:orientation="vertical">
 
                             <ImageView
-                                android:id="@+id/imageView3"
+                                android:id="@+id/img_dia_consumo"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:src="@drawable/ic_action_barra" />
@@ -227,7 +227,7 @@
                             android:orientation="vertical">
 
                             <ImageView
-                                android:id="@+id/imageView3"
+                                android:id="@+id/img_mes_consumo"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:src="@drawable/ic_action_flecha" />

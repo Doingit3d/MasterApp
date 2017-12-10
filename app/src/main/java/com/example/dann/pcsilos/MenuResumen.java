@@ -6,16 +6,25 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.renderscript.Sampler;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.github.mikephil.charting.charts.LineChart;
+import com.race604.drawable.wave.WaveDrawable;
+import com.tmall.ultraviewpager.UltraViewPager;
+import com.tmall.ultraviewpager.transformer.UltraDepthScaleTransformer;
 
 import java.util.ArrayList;
 
 import devlight.io.library.ArcProgressStackView;
 
+
+import static com.example.dann.pcsilos.MainActivity.globalContext;
 import static com.example.dann.pcsilos.UtilityGraph.LineGraphAnual;
 
 
@@ -87,39 +96,54 @@ public class MenuResumen extends Fragment {
         arcProgressStackView.setModels(models);
 
 
-        ArrayList<Silo> silos = new ArrayList<>();
-        ArrayList<Float> dataSilo1 = new ArrayList<>();
-        dataSilo1.add(2f);
-        dataSilo1.add(22f);
-        dataSilo1.add(26f);
-        dataSilo1.add(72f);
-        dataSilo1.add(62f);
-        dataSilo1.add(67f);
-        dataSilo1.add(48f);
-        dataSilo1.add(2f);
-        dataSilo1.add(22f);
-        dataSilo1.add(26f);
-        dataSilo1.add(72f);
-        dataSilo1.add(62f);
 
-        ArrayList<Float> dataSilo2 = new ArrayList<>();
-        dataSilo2.add(48f);
-        dataSilo2.add(2f);
-        dataSilo2.add(62f);
-        dataSilo2.add(26f);
-        dataSilo2.add(72f);
-        dataSilo2.add(62f);
-        dataSilo2.add(2f);
-        dataSilo2.add(22f);
-        dataSilo2.add(56f);
-        dataSilo2.add(22f);
-        dataSilo2.add(82f);
-        dataSilo2.add(67f);
+/**********************scroll view ***********************************************************************/
+        UltraViewPager ultraViewPager = (UltraViewPager)v.findViewById(R.id.ultra_viewpager_resumen);
+        ultraViewPager.setScrollMode(UltraViewPager.ScrollMode.HORIZONTAL);
+        ultraViewPager.setMultiScreen(0.6f);
+        ultraViewPager.setItemRatio(1.0f);
+       // ultraViewPager.setAutoMeasureHeight(true);
+        ultraViewPager.setInfiniteRatio(100);
+        ultraViewPager.setPageTransformer(false, new UltraDepthScaleTransformer());
+//initialize UltraPagerAdapter，and add child view to UltraViewPager
+        MyPagerAdapter2 adapter = new MyPagerAdapter2();
+        ultraViewPager.setAdapter(adapter);
 
-        Silo silo0 = new Silo(1, "Preuba", dataSilo1 , 12, 2, 123);
-        Silo silo1 = new Silo(1, "Otro silo", dataSilo2, 12, 2, 123);
+//initialize built-in indicator
+        ultraViewPager.initIndicator();
+//set style of indicators
+        ultraViewPager.getIndicator()
+                .setOrientation(UltraViewPager.Orientation.HORIZONTAL)
+                .setFocusColor(Color.GREEN)
+                .setNormalColor(Color.WHITE)
+                .setRadius((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 5, getResources().getDisplayMetrics()));
+//set the alignment
+        ultraViewPager.getIndicator().setGravity(Gravity.CENTER_HORIZONTAL | Gravity.BOTTOM);
+//construct built-in indicator, and add it to  UltraViewPager
+        ultraViewPager.getIndicator().build();
+
+//set an infinite loop
+        ultraViewPager.setInfiniteLoop(true);
+//enable auto-scroll mode
+        ultraViewPager.setAutoScroll(2000);
+/*********************************************************************************************/
+
+/**************** Estado del silo ********************************************************/
+       /* ImageView im = (ImageView) v.findViewById(R.id.silo_estado);
+
+        WaveDrawable mWaveDrawable = new WaveDrawable(globalContext, R.drawable.silo_estado);
+
+// Use as common drawable
+
+        im.setImageDrawable(mWaveDrawable);
+        mWaveDrawable.setIndeterminate(true);
+*/
+/**********************************************************************************************/
+
 
         return v;
+
+
 
     }
 
