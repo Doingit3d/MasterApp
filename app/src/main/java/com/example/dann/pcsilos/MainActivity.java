@@ -1,5 +1,10 @@
 package com.example.dann.pcsilos;
 
+import android.animation.ValueAnimator;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
+import android.icu.util.Calendar;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -15,10 +20,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.animation.AccelerateDecelerateInterpolator;
+import android.widget.ImageView;
+
+import com.race604.drawable.wave.WaveDrawable;
+import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
+
+import static android.graphics.Color.BLUE;
 
 public class MainActivity extends AppCompatActivity
-         implements MenuResumen.OnFragmentInteractionListener, NavigationView.OnNavigationItemSelectedListener, MenuConfiguration.OnFragmentInteractionListener, MenuConsumo.OnFragmentInteractionListener,
-        MenuPeso.OnFragmentInteractionListener, MenuReport.OnFragmentInteractionListener, MenuTiempoReal.OnFragmentInteractionListener {
+         implements MenuResumen.OnFragmentInteractionListener, NavigationView.OnNavigationItemSelectedListener,
+        MenuConfiguration.OnFragmentInteractionListener, MenuConsumo.OnFragmentInteractionListener,
+        MenuPeso.OnFragmentInteractionListener, MenuReport.OnFragmentInteractionListener,
+        MenuTiempoReal.OnFragmentInteractionListener, DatePickerDialog.OnDateSetListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +40,16 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+
+        ImageView im = (ImageView) findViewById(R.id.imageView4);
+
+        WaveDrawable mWaveDrawable = new WaveDrawable(this, R.drawable.silo);
+
+// Use as common drawable
+
+        im.setImageDrawable(mWaveDrawable);
+            mWaveDrawable.setIndeterminate(true);
 
 
 
@@ -37,6 +61,10 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+
+
+
     }
 
     @Override
@@ -66,6 +94,18 @@ public class MainActivity extends AppCompatActivity
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
+        }else if (id == R.id.date){
+            /*************************DATE PICKER - FECHA ****************************************/
+            Calendar now = Calendar.getInstance();
+            DatePickerDialog dpd = DatePickerDialog.newInstance(
+                    MainActivity.this,
+                    now.get(Calendar.YEAR),
+                    now.get(Calendar.MONTH),
+                    now.get(Calendar.DAY_OF_MONTH)
+            );
+            dpd.show(getFragmentManager(), "Datepickerdialog");
+            dpd.setVersion(DatePickerDialog.Version.VERSION_2);
+            /**************************FIN DATEPICKER - FECHA***************************************/
         }
 
         return super.onOptionsItemSelected(item);
@@ -116,4 +156,13 @@ public class MainActivity extends AppCompatActivity
     public void onFragmentInteraction(Uri uri) {
 
     }
+
+    //Metodo por implementar OnDatePciker
+    @Override
+    public void onDateSet(DatePickerDialog view, int year, int monthOfYear, int dayOfMonth) {
+
+    }
+
+
 }
+
