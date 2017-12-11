@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity
         MenuConfiguration.OnFragmentInteractionListener, MenuConsumo.OnFragmentInteractionListener,
         MenuPeso.OnFragmentInteractionListener, MenuReport.OnFragmentInteractionListener,
         MenuTiempoReal.OnFragmentInteractionListener, DatePickerDialog.OnDateSetListener {
-    static Context globalContext = null;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +45,13 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        globalContext = getApplicationContext();
+
+// Use as common drawable
+
+        ImageView imageView2 = (ImageView) findViewById(R.id.imageView2);
+        WaveDrawable chromeWave = new WaveDrawable(this, R.drawable.silo_estado);
+        imageView2.setImageDrawable(chromeWave);
+        chromeWave.setIndeterminate(true);
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

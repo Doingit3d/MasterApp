@@ -24,7 +24,8 @@ import java.util.ArrayList;
 import devlight.io.library.ArcProgressStackView;
 
 
-import static com.example.dann.pcsilos.MainActivity.globalContext;
+
+
 import static com.example.dann.pcsilos.UtilityGraph.LineGraphAnual;
 
 
@@ -128,17 +129,6 @@ public class MenuResumen extends Fragment {
         ultraViewPager.setAutoScroll(2000);
 /*********************************************************************************************/
 
-/**************** Estado del silo ********************************************************/
-       /* ImageView im = (ImageView) v.findViewById(R.id.silo_estado);
-
-        WaveDrawable mWaveDrawable = new WaveDrawable(globalContext, R.drawable.silo_estado);
-
-// Use as common drawable
-
-        im.setImageDrawable(mWaveDrawable);
-        mWaveDrawable.setIndeterminate(true);
-*/
-/**********************************************************************************************/
 
 
         return v;
